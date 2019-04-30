@@ -7,7 +7,7 @@ This is a WIP, this readme will be updated to better reflect the application
 contents towards completion.
 
 This project is done following The Odin Project, which this project in particular can
-be found [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/building-advanced-forms).
+be found [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).
 
 ## Usage Notes
 
