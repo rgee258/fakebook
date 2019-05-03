@@ -1,23 +1,17 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   test "should get index" do
-    get users_index_url
+    sign_in users(:tester)
+    get users_url
     assert_response :success
   end
 
-  test "should get show" do
-    get users_show_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get users_new_url
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get users_edit_url
+  test "should get show using preset admin user" do
+    sign_in users(:tester)
+    get user_url(1)
     assert_response :success
   end
 
