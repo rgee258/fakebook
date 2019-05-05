@@ -10,9 +10,14 @@
   </head>
 
   <body>
+    <%= render 'shared/logo' unless current_user %>
     <%= render 'shared/navigation' if current_user %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="notice">
+      <p><%= notice %></p>
+    </div>
+    <div class="alert">
+      <p><%= alert %></p>
+    </div>
     <%= yield %>
   </body>
 </html>

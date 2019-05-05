@@ -51,4 +51,10 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "user email should be unique" do
+    # Tester email is already present in fixtures
+    @user.email = "tester@fakebook.com"
+    assert_not @user.valid?
+  end
+
 end
