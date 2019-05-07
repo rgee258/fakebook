@@ -1,1 +1,3 @@
 User.create!(email: 'admin@fakebook.com', password: 'password', firstname: "Best", lastname: "Admin", location: "Unknown", age: 1000)
+User.create!(email: 'chef@fakebook.com', password: 'password', firstname: "Best", lastname: "Chef", location: "Unknown", age: 39)
+User.create!(email: 'sage@fakebook.com', password: 'password', firstname: "Clairvoyant", lastname: "Sage", location: "Yonder", age: 10000)
