@@ -1,6 +1,13 @@
 <ul id="navigation">
-  <%= link_to "Profile", user_path(current_user.id) %>
-  <%= link_to "All Users", users_path %>
-  <%= link_to "Account", edit_user_registration_path%>
-  <%= link_to "Logout", logout_path, method: :delete %>
+  <div class="nav-greeting">
+    <li><%= current_user.firstname %> <%= current_user.lastname %></li>
+  </div>
+  <div class="nav-links">
+    <li><%= link_to "Notifications (#{FriendRequest.where(recipient_id: current_user.id).count})",
+      user_notifications_path(current_user.id) %></li>
+    <li><%= link_to "Profile", user_path(current_user.id) %></li>
+    <li><%= link_to "All Users", users_path %></li>
+    <li><%= link_to "Account", edit_user_registration_path%></li>
+    <li><%= link_to "Logout", logout_path, method: :delete %></li>
+  </div>
 </ul>

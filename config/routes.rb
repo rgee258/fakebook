@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'friend_requests/show'
   get 'friend_request/show'
   devise_for :users, path_names: {
     sign_in: 'login', 
@@ -19,6 +20,10 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'users/:id/notifications' => 'users#notifications', as: 'user_notifications'
+
   resources :users, only: [:show, :index]
+  resources :friend_requests, only: [:show, :create, :destroy]
+  resources :friendships, only: [:create, :destroy]
 
 end
