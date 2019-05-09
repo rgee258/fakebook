@@ -8,4 +8,11 @@ class User < ApplicationRecord
   validates :lastname, presence: true
   validates :location, presence: true
   validates :age, presence: true
+
+  # Associations for friend requests
+  has_many :friend_requests
+
+  # Associations for friendships
+  has_many :friendships
+  has_many :friends, through: :friendships, dependent: :destroy
 end

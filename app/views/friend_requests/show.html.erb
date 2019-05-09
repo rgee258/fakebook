@@ -1,0 +1,16 @@
+<h1>New Friend Request</h1>
+
+<p class="fr-description">
+  <%= @sender.firstname %> <%= @sender.lastname %> wants to be friends!
+  Check out their profile <%= link_to "here", user_path(@sender.id) %>.
+</p>
+<p class="fr-date">Sent on <%= @fr.created_at %></p>
+
+<div class="fr-response">
+  <div class="fr-accept">
+    <%= link_to "Accept", friendships_path(friend_id: @sender.id) %>
+  </div>
+  <div class="fr-decline">
+    <%= link_to "Decline", friend_request_path, method: :delete %>
+  </div>
+</div>

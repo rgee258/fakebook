@@ -28,5 +28,13 @@
 /* Navigation */
 
 #navigation {
-  
+
+  div {
+    display: inline-block;
+
+    li {
+      list-style: none;
+      display: inline-block;
+    }
+  }
 }
