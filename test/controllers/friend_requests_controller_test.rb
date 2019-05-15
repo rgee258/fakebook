@@ -1,14 +1,40 @@
 require 'test_helper'
 
 class FriendRequestsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
 
   def setup
-    @fr = FriendRequest.create!(sender_id: 1, recipient_id: 2)
+    @fr = FriendRequest.new(sender_id: 3, recipient_id: 1)
   end
 
-  test "should get show" do
-    get friend_request_path(@fr.id)
+  test "should get show with valid recipient" do
+    sign_in users(:tester)
+    get friend_request_path(1)
+    assert_select 'h1', "New Friend Request"
+    assert_select "a", "Accept"
+    assert_select "a", "Decline"
     assert_template "friend_requests/show"
+  end
+
+  test "should redirect when viewing a friend request without matching recipient id" do
+    sign_in users(:testwizard)
+    get friend_request_path(1)
+    assert_redirected_to root_path
+    follow_redirect!
+    assert_select "div.alert p", "You do not have permission to view this friend request."
+  end
+
+  test "successful friend request create" do
+    assert_difference 'FriendRequest.count', 1 do
+      @fr.save
+    end
+  end
+
+  test "successful friend request destroy" do
+    @fr.save
+    assert_difference 'FriendRequest.count', -1 do
+      @fr.destroy
+    end
   end
 
 end

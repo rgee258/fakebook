@@ -1,1 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+test_fr:
+  id: 1
+  recipient_id: 1
+  sender_id: 2

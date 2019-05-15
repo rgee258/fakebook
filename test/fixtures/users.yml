@@ -13,3 +13,11 @@ testwizard:
   lastname: Wizard
   age: 3000
   location: Test Cave
+
+testwarrior:
+  id: 3
+  email: testwarrior@fakebook.com
+  firstname: Test
+  lastname: Warrior
+  age: 27
+  location: Test Mountain

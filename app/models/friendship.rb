@@ -26,6 +26,6 @@ class Friendship < ApplicationRecord
   end
 
   def inverse_match_options
-    { friend_id: user_id, user_id: friend_id}
+    { friend_id: user_id, user_id: friend_id }
   end
 end

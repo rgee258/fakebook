@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'posts/index'
+  get 'posts/show'
+  get 'posts/new'
   get 'friend_requests/show'
   get 'friend_request/show'
   devise_for :users, path_names: {
@@ -25,5 +28,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index]
   resources :friend_requests, only: [:show, :create, :destroy]
   resources :friendships, only: [:create, :destroy]
+  resources :posts, only: [:show, :index, :new, :create, :destroy]
 
 end

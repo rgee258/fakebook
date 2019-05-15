@@ -1,0 +1,12 @@
+<div class="post">
+  <div class="post-body">
+    <p><%= @post.body %></p>
+  </div>
+  <div class="post-options">
+    <p><%= @post.user.firstname %> <%= @post.user.lastname %></p>
+    <%= link_to "Like", "#" %>
+    <%= link_to "Comment", "#" %>
+  </div>
+</div>
+<div class="post-comments">
+</div>
