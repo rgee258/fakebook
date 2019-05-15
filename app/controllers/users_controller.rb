@@ -14,4 +14,5 @@ class UsersController < ApplicationController
     @notifications = FriendRequest.where("recipient_id = ?", current_user.id).
       order(created_at: :desc)
   end
+
 end

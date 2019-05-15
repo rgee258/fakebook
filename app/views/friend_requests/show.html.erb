@@ -8,7 +8,7 @@
 
 <div class="fr-response">
   <div class="fr-accept">
-    <%= link_to "Accept", friendships_path(friend_id: @sender.id) %>
+    <%= link_to "Accept", friendships_path(friend_id: @sender.id, request_id: params[:id]), method: :post %>
   </div>
   <div class="fr-decline">
     <%= link_to "Decline", friend_request_path, method: :delete %>

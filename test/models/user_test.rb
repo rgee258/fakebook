@@ -57,4 +57,9 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "first user can retrieve their first friend with id 3" do
+    friend = User.first.friends.first
+    assert_equal(friend.id, 3)
+  end
+
 end
