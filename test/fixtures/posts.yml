@@ -1,0 +1,9 @@
+first_post:
+  id: 1
+  user_id: 1
+  body: "First post"
+
+second_post:
+  id: 2
+  user_id: 2
+  body: "Second post"

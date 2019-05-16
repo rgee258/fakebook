@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'comments/new'
   get 'posts/index'
   get 'posts/show'
   get 'posts/new'
@@ -29,5 +30,7 @@ Rails.application.routes.draw do
   resources :friend_requests, only: [:show, :create, :destroy]
   resources :friendships, only: [:create, :destroy]
   resources :posts, only: [:show, :index, :new, :create, :destroy]
+  resources :likes, only: [:create, :destroy]
+  resources :comments, only: [:new, :create, :destroy]
 
 end

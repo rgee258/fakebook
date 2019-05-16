@@ -15,4 +15,14 @@ class User < ApplicationRecord
   # Associations for friendships
   has_many :friendships
   has_many :friends, through: :friendships, dependent: :destroy
+
+  # Associations for posts
+  has_many :posts
+
+  # Associations for likes
+  has_many :likes, foreign_key: :liking_user_id
+  has_many :liked_posts, through: :likes
+
+  # Associations for comments
+  has_many :comments
 end
