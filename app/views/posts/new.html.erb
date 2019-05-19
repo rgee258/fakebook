@@ -1,6 +1,7 @@
 <h1>New Post</h1>
 
 <%= form_for @post do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.text_area :body %>
   <%= f.submit "Post" %>
 <% end %>

@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class FriendshipsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   
   def setup
     @fs = Friendship.new(user_id: 1, friend_id: 2)
@@ -11,6 +12,19 @@ class FriendshipsControllerTest < ActionDispatch::IntegrationTest
     assert_difference "Friendship.count", 2 do
       @fs.save
     end
+  end
+
+  test "error displays with invalid friendship" do
+    user = users(:tester)
+    sign_in user
+    @fs.friend_id = 999999
+    assert_no_difference "Friendship.count" do
+      post friendships_path(@fs)
+    end
+    assert_redirected_to user_notifications_path(user)
+    follow_redirect!
+    assert_select 'div.alert'
+    assert_select 'p', 'Something went wrong with becoming friends, try again.'
   end
 
   test "successfully destroy friendship" do

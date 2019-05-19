@@ -3,11 +3,14 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all
+    # This query gets the friend id's of the current user and adds the current user's id
+    @posts = Post.where(user_id: current_user.friends.ids.unshift(current_user.id)).
+      order(created_at: :desc)
   end
 
   def show
     @post = Post.find(params[:id])
+    @post_comments = @post.comments
   end
 
   def new
@@ -15,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(body: params[:body], user_id: current_user.id)
+    @post = Post.new(post_params)
     if @post.save
       redirect_to posts_path
     else
@@ -28,5 +31,11 @@ class PostsController < ApplicationController
     Post.find(params[:id]).destroy
     flash[:notice] = "Post successfully destroyed."
     redirect_to posts_path
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:user_id, :body)
   end
 end

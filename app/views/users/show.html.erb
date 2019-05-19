@@ -1,2 +1,19 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="user-profile">
+  <div class="user-details">
+    <p><%= @user.firstname %> <%= @user.lastname %></p>
+    <p><%= @user.location %></p>
+    <p><%= @user.age %> years old</p>
+  </div>
+
+  <div class="user-posts">
+    <% @posts.each do |post| %>
+      <div class="user-post">
+        <div class="user-post-details">
+          <p><%= post.created_at.strftime("%-m/%-d/%Y") %></p>
+          <%= link_to "View", post_path(post.id) %>
+        </div>
+        <div class="user-post-body"><p><%= post.body %></p></div>
+      </div>
+    <% end %>
+  </div>
+</div>

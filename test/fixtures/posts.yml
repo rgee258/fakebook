@@ -7,3 +7,18 @@ second_post:
   id: 2
   user_id: 2
   body: "Second post"
+
+third_post:
+  id: 3
+  user_id: 3
+  body: "Third post"
+
+fourth_post:
+  id: 4
+  user_id: 3
+  body: "Fourth post"
+
+fifth_post:
+  id: 5
+  user_id: 3
+  body: "Fifth post"
