@@ -6,10 +6,8 @@
   <% else %>
     <% @notifications.each do |fr| %>
       <div class="user-notification">
-        <p>
-          New friend request from <%= User.find(fr.sender_id).firstname %>.
-          <div class="view-notification"><%= link_to "View", friend_request_path(fr.id) %><div>
-        </p>
+        <p class="notification-text"> New friend request from <%= User.find(fr.sender_id).firstname %>.</p>
+        <div class="view-notification"><%= link_to "View", friend_request_path(fr.id) %><div>
       </div>
     <% end %>
   <% end %>

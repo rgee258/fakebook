@@ -1,2 +1,16 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="timeline-header">
+  <h1>Your Timeline</h1>
+  <%= link_to "Make a new post!", new_post_path %>
+</div>
+
+<div class="timeline">
+  <% @posts.each do |post| %>
+    <div class="timeline-post">
+      <div class="timeline-post-details">
+        <p><%= post.user.firstname %> <%= post.user.lastname %></p>
+        <%= link_to "View", post_path(post.id) %>
+      </div>
+      <div class="timeline-post-body"><p><%= post.body %></p></div>
+    </div>
+  <% end %>
+</div>

@@ -1,13 +1,39 @@
 <div class="post">
+  <div class="post-details">
+    <p class="post-author"><%= @post.user.firstname %> <%= @post.user.lastname %></p>
+    <p class="post-date"><%= @post.created_at.strftime("%-m/%-d/%Y") %></p>
+    <p class="post-likes-counter"><%= @post.likes.count %> likes</p>
+  </div>
   <div class="post-body">
     <p><%= @post.body %></p>
   </div>
   <div class="post-options">
-    <p><%= @post.user.firstname %> <%= @post.user.lastname %></p>
-    <!-- Add check for if liked already and display accordingly -->
-    <%= link_to "Like", likes_path %>
-    <%= link_to "Comment", new_comment_path(:post_id => params[:id]) %>
+    <%= link_to "Remove", post_path(params[:id]), method: :delete if current_user.id == @post.user.id %>
+    <% currently_liked = Like.find_by(liking_user_id: current_user.id, liked_post_id: params[:id]) %>
+    <% if currently_liked %>
+      <%= link_to "Unlike", like_path(like_id: currently_liked.id, post_id: params[:id]), method: :delete %>
+    <% else %>
+      <%= link_to "Like", likes_path(post_id: params[:id]), method: :post %>
+    <% end %>
+    <%= link_to "Comment", new_comment_path(post_id: params[:id]) %>
+    <!-- Add option to delete post (make link Remove) if current_user == @post.user -->
   </div>
 </div>
+
 <div class="post-comments">
+  <% @post_comments.each do |comment| %>
+    <div class="comment">
+      <div class="comment-details">
+        <p class="comment-author"><%= comment.user.firstname %> <%= comment.user.lastname %></p>
+      </div>
+      <div class="comment-body">
+        <p><%= comment.body %></p>
+      </div>
+      <div class="comment-options">
+        <% if comment.user.id == current_user.id %>
+          <%= link_to "Delete", comment_path(comment_id: comment.id, post_id: params[:id]), method: :delete %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

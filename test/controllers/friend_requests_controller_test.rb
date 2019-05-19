@@ -30,6 +30,18 @@ class FriendRequestsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "error renders when creating invalid friend request" do
+    sign_in users(:testwarrior)
+    get users_path
+    assert_no_difference 'FriendRequest.count' do
+      post friend_requests_path(@fr)
+    end
+    assert_redirected_to users_path
+    follow_redirect!
+    assert_select 'div.alert'
+    assert_select 'p', "Problem sending friend request, try again later."
+  end
+
   test "successful friend request destroy" do
     @fr.save
     assert_difference 'FriendRequest.count', -1 do
