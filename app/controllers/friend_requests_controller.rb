@@ -36,7 +36,7 @@ class FriendRequestsController < ApplicationController
   def recipient_check
     unless FriendRequest.find(params[:id]).recipient_id == current_user.id
       flash[:alert] = "You do not have permission to view this friend request."
-      redirect_to root_path
+      redirect_to users_path
     end
   end
 end

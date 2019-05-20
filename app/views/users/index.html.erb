@@ -1,2 +1,19 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>User Directory</h1>
+
+<% @users.each do |user| %>
+  <div class="user-display">
+    <div class="user-name">
+      <%= link_to "#{user.firstname} #{user.lastname}", user_path(user.id) %>
+    </div>
+    <div class="user-fr">
+      <% if FriendRequest.find_by(sender_id: current_user.id, recipient_id: user.id) ||
+        FriendRequest.find_by(sender_id: user.id, recipient_id: current_user.id) %>
+        <p>Pending</p>
+      <% elsif @friends.include?(user.id) %>
+        <%= link_to "Unfriend", friendship_path(current_user.friendships.find_by(friend_id: user.id)), method: :delete %>
+      <% else %>
+        <%= link_to "Add Friend", friend_requests_path(recipient_id: user.id), method: :post %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

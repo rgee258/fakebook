@@ -20,6 +20,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
         firstname: "Test", lastname: "Integration", age: 0, location: "Unknown", 
         password: "wooooooo" }}
     end
+    assert_redirected_to root_path
+    follow_redirect!
+    assert_redirected_to user_path(User.last)
     follow_redirect!
     assert_template 'users/show'
     assert_select 'div.notice'

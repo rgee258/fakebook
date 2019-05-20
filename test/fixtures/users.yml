@@ -21,3 +21,11 @@ testwarrior:
   lastname: Warrior
   age: 27
   location: Test Mountain
+
+testranger:
+  id: 4
+  email: testranger@fakebook.com
+  firstname: Test
+  lastname: Ranger
+  age: 452
+  location: Test Forest

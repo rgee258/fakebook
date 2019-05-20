@@ -1,11 +1,15 @@
 <div class="user-profile">
   <div class="user-details">
+    <div class="user-photo">
+      <%= display_gravatar(current_user) %>
+    </div>
     <p><%= @user.firstname %> <%= @user.lastname %></p>
     <p><%= @user.location %></p>
     <p><%= @user.age %> years old</p>
   </div>
 
   <div class="user-posts">
+    <h3>Posts</h3>
     <% @posts.each do |post| %>
       <div class="user-post">
         <div class="user-post-details">
