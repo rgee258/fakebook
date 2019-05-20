@@ -19,7 +19,7 @@ class FriendRequestsControllerTest < ActionDispatch::IntegrationTest
   test "should redirect when viewing a friend request without matching recipient id" do
     sign_in users(:testwizard)
     get friend_request_path(1)
-    assert_redirected_to root_path
+    assert_redirected_to users_path
     follow_redirect!
     assert_select "div.alert p", "You do not have permission to view this friend request."
   end

@@ -9,7 +9,7 @@ class FriendRequestsResponseTest < ActionDispatch::IntegrationTest
   end
 
   test "successful first friend request accept" do
-    get root_path
+    get user_path(@user)
     assert_select "a", "Notifications (1)"
     get user_notifications_path(@user)
     assert_select "h1", "Notifications"
@@ -32,7 +32,7 @@ class FriendRequestsResponseTest < ActionDispatch::IntegrationTest
   end
 
   test "successful first friend request decline" do
-    get root_path
+    get user_path(@user)
     assert_select "a", "Notifications (1)"
     get user_notifications_path(@user)
     assert_select "h1", "Notifications"

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'devise/sessions#destroy', as: 'logout'
 
     authenticated :user do
-      root 'users#show', as: :authenticated_root
+      root 'users#home', as: :authenticated_root
     end
 
     unauthenticated :user do
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
 
   get 'users/:id/notifications' => 'users#notifications', as: 'user_notifications'
+  get 'users/home'
 
   resources :users, only: [:show, :index]
   resources :friend_requests, only: [:show, :create, :destroy]

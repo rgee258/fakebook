@@ -4,7 +4,7 @@
   <%= @sender.firstname %> <%= @sender.lastname %> wants to be friends!
   Check out their profile <%= link_to "here", user_path(@sender.id) %>.
 </p>
-<p class="fr-date">Sent on <%= @fr.created_at %></p>
+<p class="fr-date">Sent on <%= @fr.created_at.strftime("%-m/%-d/%Y") %></p>
 
 <div class="fr-response">
   <div class="fr-accept">
