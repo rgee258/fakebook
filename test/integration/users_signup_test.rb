@@ -6,8 +6,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get new_user_registration_path
     assert_no_difference 'User.count' do
       post user_registration_path, params: { user: { email: "testing@fakebook.com",
-        firstname: "Test", lastname: "Integration", age: 0, location: "Unknown", 
-        password: "short" }}
+        firstname: "Test", lastname: "Integration", password: "short" }}
     end
     assert_template 'users/registrations/new'
     assert_select 'div#error_explanation'
@@ -17,8 +16,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get new_user_registration_path
     assert_difference 'User.count', 1 do
       post user_registration_path, params: { user: { email: "testing@fakebook.com",
-        firstname: "Test", lastname: "Integration", age: 0, location: "Unknown", 
-        password: "wooooooo" }}
+        firstname: "Test", lastname: "Integration", password: "wooooooo" }}
     end
     assert_redirected_to root_path
     follow_redirect!

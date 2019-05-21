@@ -5,11 +5,17 @@ Rails.application.routes.draw do
   get 'posts/show'
   get 'posts/new'
   get 'friend_requests/show'
-  get 'friend_request/show'
   devise_for :users, path_names: {
     sign_in: 'login', 
     sign_out: 'logout'
   }
+
+=begin
+  # Uncomment to add omniauth 
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks' 
+  }
+=end
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new', as: 'login'
