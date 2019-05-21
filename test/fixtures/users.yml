@@ -3,29 +3,20 @@ tester:
   email: tester@fakebook.com
   firstname: Tester
   lastname: Beta
-  age: 100
-  location: Test Lab
 
 testwizard:
   id: 2
   email: testwizard@fakebook.com
   firstname: Test
   lastname: Wizard
-  age: 3000
-  location: Test Cave
 
 testwarrior:
   id: 3
   email: testwarrior@fakebook.com
   firstname: Test
   lastname: Warrior
-  age: 27
-  location: Test Mountain
-
 testranger:
   id: 4
   email: testranger@fakebook.com
   firstname: Test
   lastname: Ranger
-  age: 452
-  location: Test Forest
