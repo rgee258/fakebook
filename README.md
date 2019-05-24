@@ -12,3 +12,5 @@ be found [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/fin
 ## Usage Notes
 
 To be added later...
+
+## Testing Notes
