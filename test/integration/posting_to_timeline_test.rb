@@ -26,7 +26,7 @@ class PostingToTimelineTest < ActionDispatch::IntegrationTest
     assert_select "p", "Test post"
     assert_select "a", { count: 5, text: "View" }, "There are 5 posts with the newly added test post"
     get post_path(Post.last)
-    assert_select "p", "#{user.firstname} #{user.lastname}"
+    assert_select "p", "#{user.first_name} #{user.last_name}"
     assert_select "p", "Test post"
     sign_out user
 

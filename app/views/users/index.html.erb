@@ -1,19 +1,25 @@
-<h1>User Directory</h1>
+<div class="user-directory">
+  <h2>User Directory</h2>
 
-<% @users.each do |user| %>
-  <div class="user-display">
-    <div class="user-name">
-      <%= link_to "#{user.firstname} #{user.lastname}", user_path(user.id) %>
+  <% @users.each do |user| %>
+    <div class="user-display">
+      <div class="user-directory-photo">
+        <%= image_tag user.photo, size: "40x40", class: "user-directory-photo-image" %>
+      </div>
+      <div class="user-name">
+        <%= link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %>
+      </div>
+      <div class="user-fr">
+        <% if FriendRequest.find_by(sender_id: current_user.id, recipient_id: user.id) ||
+          FriendRequest.find_by(sender_id: user.id, recipient_id: current_user.id) %>
+          <p class="pending">Pending</p>
+        <% elsif @friends.include?(user.id) %>
+          <%= link_to "Unfriend", friendship_path(current_user.friendships.find_by(friend_id: user.id)), method: :delete ,
+            class: "unfriend" %>
+        <% else %>
+          <%= link_to "Add Friend", friend_requests_path(recipient_id: user.id), method: :post , class: "add-friend" %>
+        <% end %>
+      </div>
     </div>
-    <div class="user-fr">
-      <% if FriendRequest.find_by(sender_id: current_user.id, recipient_id: user.id) ||
-        FriendRequest.find_by(sender_id: user.id, recipient_id: current_user.id) %>
-        <p>Pending</p>
-      <% elsif @friends.include?(user.id) %>
-        <%= link_to "Unfriend", friendship_path(current_user.friendships.find_by(friend_id: user.id)), method: :delete %>
-      <% else %>
-        <%= link_to "Add Friend", friend_requests_path(recipient_id: user.id), method: :post %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

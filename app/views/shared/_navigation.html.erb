@@ -1,14 +1,24 @@
-<ul id="navigation">
-  <div class="nav-greeting">
-    <li><%= current_user.firstname %> <%= current_user.lastname %></li>
+<div id="navigation">
+  <div class="navbar">
+    <div class="nav-logo">
+      <p>fakebook</p>
+    </div>
+    <div class="nav-content">
+      <ul>
+        <div class="nav-greeting">
+          <li><%= image_tag current_user.photo, size: "30x30", class: "current-user-photo" %></li>
+          <li><p class="current-user-name"><%= current_user.first_name %></p></li>
+        </div>
+        <div class="nav-links">
+          <li><%= link_to "Timeline", posts_path %></li>
+          <li><%= link_to "Notifications (#{FriendRequest.where(recipient_id: current_user.id).count})",
+            user_notifications_path(current_user.id) %></li>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
+          <li><%= link_to "All Users", users_path %></li>
+          <li><%= link_to "Account", edit_user_registration_path %></li>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        </div>
+      </ul>
+    </div>
   </div>
-  <div class="nav-links">
-    <li><%= link_to "Notifications (#{FriendRequest.where(recipient_id: current_user.id).count})",
-      user_notifications_path(current_user.id) %></li>
-    <li><%= link_to "Timeline", posts_path %></li>
-    <li><%= link_to "Profile", user_path(current_user) %></li>
-    <li><%= link_to "All Users", users_path %></li>
-    <li><%= link_to "Account", edit_user_registration_path %></li>
-    <li><%= link_to "Logout", logout_path, method: :delete %></li>
-  </div>
-</ul>
+</div>
