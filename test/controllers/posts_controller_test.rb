@@ -33,6 +33,19 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to posts_path
   end
 
+  test "successfully create post with photo" do
+    get posts_new_url
+    assert_response :success
+    assert_select "h1", "New Post"
+    assert_select "textarea"
+    assert_select "input[type=submit]"
+    assert_difference 'Post.count', 1 do
+      post posts_path, params: { post: { user_id: @user.id, body: "Test post", 
+        photo_link: "https://www.whateverthisimageisitsnotreal.com" } }
+    end
+    assert_redirected_to posts_path
+  end
+
   test "error rendered when creating invalid post" do
     get posts_new_url
     assert_response :success

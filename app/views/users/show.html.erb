@@ -1,20 +1,25 @@
 <div class="user-profile">
   <div class="user-details">
     <div class="user-photo">
-      <%= display_gravatar(current_user) %>
+      <%= image_tag @user.photo, size: "200x200", class: "user-photo-image" %>
     </div>
-    <p><%= @user.firstname %> <%= @user.lastname %></p>
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
   </div>
 
   <div class="user-posts">
-    <h3>Posts</h3>
+    <h2>Posts</h2>
     <% @posts.each do |post| %>
       <div class="user-post">
         <div class="user-post-details">
           <p><%= post.created_at.strftime("%-m/%-d/%Y") %></p>
           <%= link_to "View", post_path(post.id) %>
         </div>
-        <div class="user-post-body"><p><%= post.body %></p></div>
+        <div class="user-post-body">
+          <p><%= post.body %></p>
+          <% if post.photo.attached? %>
+            <%= image_tag post.photo.variant(resize: "600x300"), class: "user-post-body-photo" %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>

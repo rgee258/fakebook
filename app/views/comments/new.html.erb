@@ -1,8 +1,14 @@
-<h1>New Comment</h1>
+<div class="new-comment">
+  <h2>New Comment</h2>
 
-<%= form_for @comment do |f| %>
-  <%= f.hidden_field :post_id, value: params[:post_id] %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.text_area :body %>
-  <%= f.submit "Comment" %>
-<% end %>
+  <%= form_for @comment do |f| %>
+    <%= f.hidden_field :post_id, value: params[:post_id] %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="field">
+      <%= f.text_area :body, placeholder: "Comment something!" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Comment" %>
+    </div>
+  <% end %>
+</div>

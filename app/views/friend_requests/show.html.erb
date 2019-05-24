@@ -1,16 +1,22 @@
-<h1>New Friend Request</h1>
+<div class="friend-request">
+  <h2>New Friend Request</h2>
 
-<p class="fr-description">
-  <%= @sender.firstname %> <%= @sender.lastname %> wants to be friends!
-  Check out their profile <%= link_to "here", user_path(@sender.id) %>.
-</p>
-<p class="fr-date">Sent on <%= @fr.created_at.strftime("%-m/%-d/%Y") %></p>
-
-<div class="fr-response">
-  <div class="fr-accept">
-    <%= link_to "Accept", friendships_path(friend_id: @sender.id, request_id: params[:id]), method: :post %>
+  <div class="fr-description">
+    <%= image_tag @sender.photo, size: "150x150", 
+      class: "sender-photo"  %>
+    <p><%= @sender.first_name %> <%= @sender.last_name %> wants to be friends!</p>
+    <p>Check out their profile <%= link_to "here", user_path(@sender.id) %>.</p>
+    <p class="fr-date">Sent on <%= @fr.created_at.strftime("%-m/%-d/%Y") %>.</p>
   </div>
-  <div class="fr-decline">
-    <%= link_to "Decline", friend_request_path, method: :delete %>
+
+  <div class="fr-response">
+    <div class="fr-options">
+      <div class="fr-accept">
+        <%= link_to "Accept", friendships_path(friend_id: @sender.id, request_id: params[:id]), method: :post %>
+      </div>
+      <div class="fr-decline">
+        <%= link_to "Decline", friend_request_path, method: :delete %>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,7 +1,18 @@
-<h1>New Post</h1>
+<div class="new-post">
+  <h2>New Post</h2>
 
-<%= form_for @post do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.text_area :body %>
-  <%= f.submit "Post" %>
-<% end %>
+  <%= form_for @post do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="field">
+      <%= f.text_area :body, placeholder: "Post something!" %>
+    </div>
+    <div class="field">
+      <%= f.label :photo, 'Optional Photo' %><br />
+      <em>(.jpg, .jpeg, .png, .gif below 2 MB only)</em>
+      <%= f.file_field :photo %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Post" %>
+    </div>
+  <% end %>
+</div>

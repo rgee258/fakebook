@@ -1,14 +1,18 @@
-<h1>Notifications</h1>
+<div class="user-notifications">
 
-<div class="notifications-listing">
-  <% if @notifications.nil? %> 
-    <p>No notifications available.</p>
-  <% else %>
-    <% @notifications.each do |fr| %>
-      <div class="user-notification">
-        <p class="notification-text"> New friend request from <%= User.find(fr.sender_id).firstname %>.</p>
-        <div class="view-notification"><%= link_to "View", friend_request_path(fr.id) %><div>
-      </div>
+  <h2>Notifications</h2>
+
+  <div class="notifications-listing">
+    <% if @notifications.nil? %> 
+      <p>No notifications available.</p>
+    <% else %>
+      <% @notifications.each do |fr| %>
+        <div class="user-notification">
+          <p class="notification-text">New friend request from <%= User.find(fr.sender_id).first_name %>.</p>
+          <%= link_to "View", friend_request_path(fr.id) %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
 </div>

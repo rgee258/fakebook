@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
 
   # Add parameters for User beyond those provided by Devise
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname, :location, :age])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :photo])
 
-    devise_parameter_sanitizer.permit(:account_update, keys: [:firstname, :lastname, :location, :age])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :photo])
   end
 
   private

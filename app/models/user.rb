@@ -5,8 +5,10 @@ class User < ApplicationRecord
          # Uncomment below for adding omniauth with Facebook
          #,:omniauthable, omniauth_providers: %i[facebook]
 
-  validates :firstname, presence: true
-  validates :lastname, presence: true
+  validates :first_name, presence: true, length: { minimum: 1, maximum: 15 }
+  validates :last_name, presence: true, length: { minimum: 1, maximum: 15 }
+  validates :photo, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg'],
+    size: { less_than: 2.megabytes , message: 'is too large, 2 MB max' }
 
   # Associations for friend requests
   has_many :friend_requests, foreign_key: :sender_id, dependent: :destroy
@@ -25,6 +27,8 @@ class User < ApplicationRecord
   # Associations for comments
   has_many :comments, dependent: :destroy
 
+  # Add a user photo
+  has_one_attached :photo
 
   after_create :send_welcome_mail
 

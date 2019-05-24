@@ -1,22 +1,23 @@
 tester:
   id: 1
   email: tester@fakebook.com
-  firstname: Tester
-  lastname: Beta
+  first_name: Tester
+  last_name: Beta
 
 testwizard:
   id: 2
   email: testwizard@fakebook.com
-  firstname: Test
-  lastname: Wizard
+  first_name: Test
+  last_name: Wizard
 
 testwarrior:
   id: 3
   email: testwarrior@fakebook.com
-  firstname: Test
-  lastname: Warrior
+  first_name: Test
+  last_name: Warrior
+
 testranger:
   id: 4
   email: testranger@fakebook.com
-  firstname: Test
-  lastname: Ranger
+  first_name: Test
+  last_name: Ranger

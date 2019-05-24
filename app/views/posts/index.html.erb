@@ -1,16 +1,23 @@
-<div class="timeline-header">
-  <h1>Your Timeline</h1>
-  <%= link_to "Make a new post!", new_post_path %>
-</div>
+<div class="timeline-display">
+  <div class="timeline-header">
+    <h2>Your Timeline</h2>
+    <%= link_to "Make a new post!", new_post_path %>
+  </div>
 
-<div class="timeline">
-  <% @posts.each do |post| %>
-    <div class="timeline-post">
-      <div class="timeline-post-details">
-        <p><%= post.user.firstname %> <%= post.user.lastname %></p>
-        <%= link_to "View", post_path(post.id) %>
+  <div class="timeline">
+    <% @posts.each do |post| %>
+      <div class="timeline-post">
+        <div class="timeline-post-details">
+          <p><%= post.user.first_name %> <%= post.user.last_name %></p>
+          <%= link_to "View", post_path(post.id) %>
+        </div>
+        <div class="timeline-post-body">
+          <p><%= post.body %></p>
+          <% if post.photo.attached? %>
+            <%= image_tag post.photo.variant(resize: "700x350"), class: "timeline-post-body-image" %>
+          <% end %>
+        </div>
       </div>
-      <div class="timeline-post-body"><p><%= post.body %></p></div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
