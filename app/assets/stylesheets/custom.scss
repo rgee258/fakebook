@@ -60,16 +60,6 @@ body {
     .new_user, .edit_user, .login_forgot {
       font-size: 12px;
     }
-    .login-forgot {
-      display: inline;
-      margin-left: -218px;
-      margin-right: 218px;
-      a {
-        text-decoration: none;
-        color: #9cb4d8;
-        font-size: 12px;
-      }
-    }
     .login-logo h2 {
       float: left;
       margin-bottom: -25px;
@@ -108,8 +98,23 @@ body {
             background-color: #375592;
           }
         }
-        .remember-field {
+        .remember-field, .login-forgot {
+          display: inline-block;
+        }
+        .remember-field, .login-forgot a {
           color: #9cb4d8;
+        }
+        .remember-field {
+          input[type=checkbox] {
+            vertical-align: middle;
+          }
+        }
+        .login-forgot {
+          margin-left: 13%;
+          a {
+            text-decoration: none;
+            font-size: 12px;
+          }
         }
       }
     }
