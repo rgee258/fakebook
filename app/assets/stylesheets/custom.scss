@@ -21,7 +21,7 @@ body {
   padding: 10px 0;
   width: 40%;
   text-align: center;
-  word-wrap: true;
+  word-wrap: break-word;
   border-radius: 5px;
   font-family: 'Roboto';
 }
@@ -544,6 +544,7 @@ body {
       font-size: 30px;
       p {
         font-family: 'Noto Sans TC';
+        word-wrap: break-word;
       }
       img {
         display: block;
@@ -621,6 +622,7 @@ body {
       .comment-body {
         margin: 10px auto;
         font-size: 18px;
+        word-wrap: break-word;
       }
       .comment-options {
         padding-top: 10px;
@@ -711,6 +713,7 @@ body {
       .timeline-post-body {
         margin: 15px auto;
         font-size: 20px;
+        word-wrap: break-word;
         p {
           font-family: 'Noto Sans TC';
         }
@@ -738,10 +741,12 @@ body {
   .user-details {
     position: fixed;
     top: 35%;
-    p {
-      text-align: center;
-      font-size: 20px;
-      font-family: 'Helvetica';
+    .user-name {
+      p {
+        text-align: center;
+        font-size: 20px;
+        font-family: 'Helvetica';
+      }
     }
   }
   .user-posts {
@@ -784,6 +789,7 @@ body {
         font-size: 18px;
         p {
           font-family: 'Noto Sans TC';
+          word-wrap: break-word;
         }
         img {
           display: block;

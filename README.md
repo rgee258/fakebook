@@ -86,13 +86,18 @@ from users or posts.
 
 All of the CSS for this app was done without a framework or template. It's
 intended to look as consistent as possible, but there may be some slip ups
-here and there.
+here and there (looking at you 'Forgot Password?'' link).
 
 Most of the functionality should work as intended, however some of the reliance
 from gems such as Devise may produce unintended effects or cause errors unseen
 during development. Ie. During development I noticed that Devise handles
 putting multiple forms together on the same page oddly, and would change classes
 for both form tags that would disrupt my CSS, so a workaround was added.
+
+This application has implementation for the omniauth-facebook gem together with
+Devise, mostly commented out and completely untested. Using it will likely require
+said portions to be added back in, views to appropriately display login options
+with it, and additional implementation as necessary.
 
 Lastly, this is mostly a project done for learning purposes. There's not much
 intention to improve it further, unless a need arises to revisit this application

@@ -3,7 +3,10 @@
     <div class="user-photo">
       <%= image_tag @user.photo, size: "200x200", class: "user-photo-image" %>
     </div>
-    <p><%= @user.first_name %> <%= @user.last_name %></p>
+    <div class="user-name">
+      <p><%= @user.first_name %></p>
+      <p><%= @user.last_name %></p>
+    </div>
   </div>
 
   <div class="user-posts">
