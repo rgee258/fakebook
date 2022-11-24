@@ -5,17 +5,14 @@ of features akin to what you'll find on most social media platforms.
 
 Fakebook contains the following features:
 
-* User Registration
-* User Profiles
-* Post Creation
-* Photo Uploads
-* Post Likes
-* Post Commenting
-* Friend Networking
-* Posts Feed
-
-If you're interested, this application is currently hosted on Heroku, so go
-and [try out Fakebook for yourself](https://rg-fakebook.herokuapp.com/).
+- User Registration
+- User Profiles
+- Post Creation
+- Photo Uploads
+- Post Likes
+- Post Commenting
+- Friend Networking
+- Posts Feed
 
 This project is done following The Odin Project, which this project in particular can
 be found [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).
@@ -24,7 +21,7 @@ be found [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/fin
 
 Here's a basic rundown of how to use Fakebook.
 
-Sign up and make a valid Fakebook account with your email, password, name, 
+Sign up and make a valid Fakebook account with your email, password, name,
 and profile picture of your choice. If necessary you can edit these later.
 
 You'll receive a welcome email so you'll know you're using Fakebook.
@@ -32,8 +29,8 @@ You'll receive a welcome email so you'll know you're using Fakebook.
 Upon logging in, you'll be able to see the navigation bar to access the
 application's features.
 
-After logging in or signing up, you'll be first sent to your profile page. 
-Here you'll see your photo, name, and a feed of all of the posts you've 
+After logging in or signing up, you'll be first sent to your profile page.
+Here you'll see your photo, name, and a feed of all of the posts you've
 created.
 
 Your timeline is your main posts feed, where all of the posts from your
@@ -64,8 +61,8 @@ Have fun!
 
 ## Testing Notes
 
-During creation of this application, testing was performed using the testing 
-features provided by Rails. 
+During creation of this application, testing was performed using the testing
+features provided by Rails.
 
 However, if you were to run said tests, you would notice a lot of errors.
 
@@ -78,8 +75,8 @@ as failing or containing an error.
 Testing around Active Storage is a bit of a headache, doubly so when adding a
 required validation for User photos.
 
-If you are interested in getting the tests to pass, remove or comment out the 
-validations for users as well as all view templates that display photo feeds 
+If you are interested in getting the tests to pass, remove or comment out the
+validations for users as well as all view templates that display photo feeds
 from users or posts.
 
 ## Additional Notes
